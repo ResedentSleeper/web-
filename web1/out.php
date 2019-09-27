@@ -67,7 +67,7 @@ function getTable($limit) {
     echo "</table> <br>";
 }
 
-    $x = $_GET['X'];
+    $x = str_replace(',', '.', $_GET['X']);
 	$y = (int)$_GET['Y'];
 	$r = (int)$_GET['R'];
 	

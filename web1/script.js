@@ -25,7 +25,7 @@
       msg.classList.add("hidden");
   }
 
-  window.cx = checkX;
+ 
    function checkX() {
     xText.value = xText.value.trim();
 
@@ -34,13 +34,13 @@
       return false;
     }
 
-    if (isNaN(xText.value.replace('/,/', '.'))) {
+    if (isNaN(xText.value.replace(',', '.'))) {
       setMsg("В поле X следует ввести число");
       return false;
     }
     let val = +xText.value;
     if (val <= -5 || val >= 3) {
-      setMsg("X должен лежать в диапазоне -5...3");
+      setMsg('X должен лежать в диапазоне (-5...3)');
       return false;
     }
     return true;
@@ -52,7 +52,6 @@
     for (let i = 0; i < yRadio.length; i++) {
       if (yRadio[i].checked) {
       	return true;
-      	setMsg("(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧Вау можно проверить данные✧ﾟ･: *ヽ(◕ヮ◕ヽ)");
       }
     }
     setMsg("Параметр Y обязателен!");
@@ -64,7 +63,6 @@
     for (let i = 0; i < rRadio.length; i++) {
       if (rRadio[i].checked) {
       	return true;
-      	setMsg("(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧Вау можно проверить данные✧ﾟ･: *ヽ(◕ヮ◕ヽ)");
       }
     }
     setMsg("Параметр R обязателен!");
