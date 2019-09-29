@@ -10,17 +10,17 @@ var $r_dot;
 //hit-or-miss
 var $hom;
 
-//function GetX() { echo $this->x_dot;}
-//function SetX($x_dot) { $this->x_dot = $x_dot; }
+function GetX() { return $this->x_dot;}
+function SetX($x_dot) { $this->x_dot = $x_dot; }
 
-//function GetY() {echo $this->y_dot;}
-//function SetY($y_dot) {$this->y_dot = $y_dot;}
+function GetY() {return $this->y_dot;}
+function SetY($y_dot) {$this->y_dot = $y_dot;}
 
-//function GetR() {echo $this->r_dot;}
-//function SetR($r_dot) {$this->r_dot = $r_dot;}
+function GetR() {return $this->r_dot;}
+function SetR($r_dot) {$this->r_dot = $r_dot;}
 
-//function GetHOM() {echo $this->hom;}
-//function SetHOM($hom) {$this->hom = $hom;}
+function GetHOM() {return $this->hom;}
+function SetHOM($hom) {$this->hom = $hom;}
 
 }
 
@@ -50,17 +50,22 @@ function hit_or_miss ($x_val, $y_val, $r_val){
 
 
 function getTable($limit) {
+	$funcX = "GetX";
+	$funcY = "GetY";
+	$funcR = "GetR";
+	$funch = "GetHOM";
+
     echo "<table>";
     echo "<tr> <th>X</th> <th>Y</th> <th>R</th> <th>Результат</th></tr>";
     if (count($_SESSION['arr']) < 10){
     	foreach ($_SESSION['arr'] as $item) {
-    		echo '<tr><td>'.$item->x_dot . '</td><td>' . $item->y_dot . '</td><td>' . $item->r_dot . '</td><td>' . $item->hom . '</td></tr>';
+    		echo '<tr><td>'.$item->$funcX() . '</td><td>' .$item->$funcY(). '</td><td>' . $item->$funcR() . '</td><td>' . $item->$funch() . '</td></tr>';
     	}
     }else { 
     	while (count($_SESSION['arr']) >= $limit){
     	array_shift($_SESSION['arr']);
     	foreach ($_SESSION['arr'] as $item) {
-    		echo '<tr><td>'.$item->x_dot . '</td><td>' . $item->y_dot . '</td><td>' . $item->r_dot . '</td><td>' . $item->hom . '</td></tr>';
+    		echo '<tr><td>'.$item->$funcX() . '</td><td>' .$item->$funcY(). '</td><td>' . $item->$funcR() . '</td><td>' . $item->$funch(). '</td></tr>';
     	}
     }
 }
